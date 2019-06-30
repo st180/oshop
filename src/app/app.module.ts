@@ -23,7 +23,10 @@ import { UserService } from './user.service';
 import { AdminAuthGuardService } from './admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { CategoryService } from './category.service';
-
+import { FormsModule } from '@angular/forms';
+import { ProductService } from './product.service';
+import { DataTableModule } from '@ismatjon/angular-data-table';
+import { ShoppingCartService } from './shopping-cart.service';
 
 
 @NgModule({
@@ -42,12 +45,14 @@ import { CategoryService } from './category.service';
     ProductFormComponent
   ],
   imports: [
-    BrowserModule,    
+    BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    DataTableModule,
     AppRoutingModule,
     NgbModule.forRoot(),
+    FormsModule
 
   ],
   providers: [
@@ -55,7 +60,9 @@ import { CategoryService } from './category.service';
     AuthGuardService,
     UserService,
     AdminAuthGuardService,
-    CategoryService
+    CategoryService,
+    ProductService,
+    ShoppingCartService
   ],
   bootstrap: [AppComponent]
 })
